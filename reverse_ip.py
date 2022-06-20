@@ -28,12 +28,17 @@ def OutputCsv(reverse_func):
     if reverse_func is None:
         return
     domain_array = reverse_func[0]
+
+    for domain in domain_array:
+        print(domain)
     domain_name = reverse_func[1]
     f = open("ReverseIP-CSV/{0} {1}.csv".format(domain_name, datetime.today().strftime('%Y-%m-%d %H-%M')), 'w')
     data = domain_array
     writer = csv.writer(f)
     writer.writerow(data)
     f.close()
+    sleep(5)
+    return print("抽出に成功しました")
 
 
 if __name__ == '__main__':
